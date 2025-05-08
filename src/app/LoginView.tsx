@@ -1,5 +1,7 @@
 import { Button } from '@/components/ui/button';
 import {Card} from '@/components/ui/card';
+//import { signIn } from 'next-auth/react';
+import { signIn } from "@/auth"
 
 
 export default function LoginForm() {
@@ -11,7 +13,12 @@ export default function LoginForm() {
                 <p>please login to continue</p>
             </div>
             <div>
-                <Button>Login with Google</Button>
+                <form action={async () =>{
+                    'use server';
+                    await signIn("google")
+                }}>
+                    <Button type='submit'>Login with Google</Button>
+                </form>
             </div>
         </Card>
     </div>
