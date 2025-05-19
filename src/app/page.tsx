@@ -1,20 +1,21 @@
 import { auth } from "@/auth";
-import LoginForm  from "./LoginView"
+import LoginForm  from "./LoginView";
+import Header from "@/components/header";
 
 
 export default async function Home() {
   const session = await auth();
   const user = session?.user;
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <div className="w-full max-w-sm">
+    <div>
         {user && (
-          <div>hello {user.name}</div>
+          <div className="p-4">
+            <Header user={user}/>
+          </div>
         )}
         {!user && (
           <LoginForm />
         )}
-      </div>
     </div>
   );
 }
