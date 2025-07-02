@@ -1,6 +1,7 @@
 import { auth } from "@/auth";
 import LoginForm  from "./LoginView";
 import Header from "@/components/header";
+import Sidebar from "@/components/sidebar";
 
 
 export default async function Home() {
@@ -9,8 +10,16 @@ export default async function Home() {
   return (
     <div>
         {user && (
-          <div className="p-4">
+          <div className="p-4 h-screen">
             <Header user={user}/>
+            <div className="mt-4 grid grid-cols-12 gap-4">
+              <div className="col-span-3">
+              <Sidebar/>
+              </div>
+              <div className="col-span-9 bg-white rounded-2xl">
+                content
+              </div>
+            </div>
           </div>
         )}
         {!user && (
