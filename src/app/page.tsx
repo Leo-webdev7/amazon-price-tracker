@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import LoginForm  from "./LoginView";
 import Header from "@/components/header";
 import Sidebar from "@/components/sidebar";
+import Dashboard from "@/components/dashboard";
 
 
 export default async function Home() {
@@ -17,7 +18,7 @@ export default async function Home() {
               <Sidebar/>
               </div>
               <div className="col-span-9 bg-white rounded-2xl">
-                content
+                <Dashboard />
               </div>
             </div>
           </div>
