@@ -17,7 +17,7 @@ export default async function Home() {
               <div className="col-span-3">
               <Sidebar/>
               </div>
-              <div className="col-span-9 bg-white rounded-2xl">
+              <div className="col-span-9 bg-#dedede rounded-2xl">
                 <Dashboard />
               </div>
             </div>
