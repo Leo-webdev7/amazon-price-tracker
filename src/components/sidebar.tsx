@@ -8,15 +8,15 @@ export default function Sidebar () {
             className="bg-white rounded-2xl p-4 h-full">
             <h2 className="uppercase text-gray-600 text-sm font-extrabold mb-2">Navigation</h2>
             <nav className="flex flex-col gap-2 *:flex *:gap-1 *:items-center">
-                <Link href={'/electronics'}>
+                <Link href={'/'}>
                     <ListIcon className="h-5"/>
                     All products
                 </Link>
-                <Link href={'/electronics'}>
+                <Link href={'/add-product'}>
                     <CirclePlusIcon className="h-5"/>
                     Add product
                 </Link>
-                <Link href={'/electronics'}>
+                <Link href={'/notifications'}>
                     <BellDotIcon className="h-5"/>
                     Notifications
                 </Link>
