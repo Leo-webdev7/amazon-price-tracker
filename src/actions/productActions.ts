@@ -25,10 +25,10 @@ export async function addProduct(productId: string) {
 
 
 'use server';
+import { prisma } from "../lib/db";
 
-import { PrismaClient } from '../../generated/prisma';
-
-const prisma = new PrismaClient(); // <-- instantiate the client
+/* import { PrismaClient } from '../../generated/prisma';  */
+/* const prisma = new PrismaClient(); // <-- instantiate the client */
 
 export async function addProduct(asin: string) {
   try {

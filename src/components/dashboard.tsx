@@ -17,11 +17,7 @@ export default function Dashboard () {
             </div>
             <div className="grid grid-cols-2 gap-4">
                 <DashBoardProductCard />
-                <DashBoardProductCard />
-                <DashBoardProductCard />
-                <DashBoardProductCard />
-                <DashBoardProductCard />
-                <DashBoardProductCard />
+                
             </div>
         </div>
     );

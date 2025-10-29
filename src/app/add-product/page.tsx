@@ -28,13 +28,13 @@ export default function AddProduct() {
     );
 }; */
 
-
 'use client';
 
 import { useState } from "react";
 import { addProduct } from "@/actions/productActions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { redirect } from "next/navigation";
 
 export default function AddProduct() {
   const [productId, setProductId] = useState("");
@@ -51,6 +51,7 @@ export default function AddProduct() {
     const result = await addProduct(productId);
     if (result) {
       setMessage("Product added successfully!");
+      redirect(`/`);
     } else {
       setMessage("Failed to add product. Check the console for details.");
     }
