@@ -25,6 +25,7 @@ export async function addProduct(productId: string) {
 
 
 'use server';
+import { auth } from "@/auth";
 import { prisma } from "../lib/db";
 
 /* import { PrismaClient } from '../../generated/prisma';  */
@@ -32,6 +33,13 @@ import { prisma } from "../lib/db";
 
 export async function addProduct(asin: string) {
   try {
+    const session = await auth();
+    const user = session?.user;
+    if (!user) {
+      return false;
+    }
+
+
     const url = `http://api.axesso.de/amz/amazon-lookup-product?url=https://www.amazon.com/dp/${asin}?psc=1`;
     const res = await fetch(url, {
       method: "GET",
@@ -50,10 +58,11 @@ export async function addProduct(asin: string) {
 
     // Map API response to your Prisma schema
     const product = {
+      userEmail: user.email,
       amazonId: data.asin || asin,
       title: data.productTitle || "",
       img: data.imageUrlList?.[0] || "",
-      price: Math.round(data.price || 0),
+      price: parseFloat(data.price) || 0,
       reviewsCount: data.countReview || 0,
       reviewsAverageRating: parseFloat(data.productRating?.split(" ")[0]) || 0,
     };
