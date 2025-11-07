@@ -62,7 +62,7 @@ export async function addProduct(asin: string) {
       amazonId: data.asin || asin,
       title: data.productTitle || "",
       img: data.imageUrlList?.[0] || "",
-      price: parseFloat(data.price) || 0,
+      price: data.price*100 || 0,
       reviewsCount: data.countReview || 0,
       reviewsAverageRating: parseFloat(data.productRating?.split(" ")[0]) || 0,
     };

@@ -12,7 +12,7 @@ export default function DashBoardProductCard ({product}:{product:Product}) {
                         <div className="relative grow -mb-0 flex items-end">
                             <div className="absolute w-full top-0">
                                 <h3 className="font-bold">{product.title}</h3>
-                            <h4>{product.price.toFixed(2)}$</h4>
+                            <h4>{product.price/100}$</h4>
                             <h5 className="text-xs text-red-400">
                                 added {new Date(product.createdAt).toLocaleString()}
                             </h5>
